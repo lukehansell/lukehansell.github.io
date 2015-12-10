@@ -1,0 +1,41 @@
+{
+  "name": "rehackt",
+  "version": "1.0.0",
+  "description": "react hack day at HX",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "webpack",
+    "start": "webpack-dev-server --inline --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukehansell/rehackt.git"
+  },
+  "keywords": [
+    "react",
+    "hackday",
+    "holiday",
+    "extras"
+  ],
+  "author": "Luke Hansell <luke.hansell@holidayextras.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukehansell/rehackt/issues"
+  },
+  "homepage": "https://github.com/lukehansell/rehackt#readme",
+  "devDependencies": {
+    "babel-core": "^6.3.15",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "mocha": "^2.3.4",
+    "parallelshell": "^2.0.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "dependencies": {
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  }
+}
