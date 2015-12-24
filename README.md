@@ -1,2 +1,3 @@
-# rehackt
-react hack day at hx
+# lukehansell
+My Blog built with React and Webpack
+

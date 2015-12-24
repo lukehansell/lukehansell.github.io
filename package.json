@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "build": "webpack",
-    "start": "webpack-dev-server --inline --hot --content-base public"
+    "start": "webpack-dev-server --inline --hot --content-base public",
+    "publish": "git subtree push --prefix public origin gh-pages"
   },
   "repository": {
     "type": "git",
