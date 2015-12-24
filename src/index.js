@@ -1,10 +1,21 @@
 import {default as React, Component} from 'react'
 import {render} from 'react-dom'
 
-const App = () => {
-	return (
-		<h1>Rehackt</h1>
-	)
-}
+import {Router, Route} from 'react-router'
 
-render(<App />, document.getElementById('app'))
+import App from './components/App'
+import BlogRoll from './components/BlogRoll'
+import Post from './components/Post'
+import About from './components/About'
+
+import './index.css'
+
+render((
+	<Router>
+		<Route component={App} >
+			<Route path="/" component={BlogRoll} />
+			<Route path="posts/:date/:title" component={Post} />
+			<Route path="about" component={About} />
+		</Route>
+	</Router>
+), document.getElementById('app'))

@@ -1,0 +1,12 @@
+.blogItem h3 {
+	margin-top: 2em;
+}
+
+.blogItem pre {
+	margin: 2.5em 0;
+}
+
+.blogItem p {
+	font-family: serif;
+	margin-bottom:1.5em;
+}
