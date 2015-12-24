@@ -2,6 +2,7 @@ import {default as React, Component} from 'react'
 
 import {Grid, Row, Col, PageHeader, Nav, NavItem, Navbar} from 'react-bootstrap'
 import {Link} from 'react-router'
+import GoogleAd from 'react-google-ad'
 
 import marked from 'marked'
 
@@ -85,6 +86,7 @@ export default class App extends Component {
 									)
 								})}
 							</ul>
+							<GoogleAd client="ca-pub-7146027200430145" slot="6621837438" format="auto" />
 						</div>
 					</Col>
 				</Row>

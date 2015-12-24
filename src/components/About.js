@@ -5,7 +5,6 @@ import Gravatar from 'react-gravatar'
 const aboutContent = require('html!markdown!../../pages/about.mxd')
 
 export default () => {
-	ga('send', 'pageview', 'about');
 
 	const publishedWork = [{
 		title: 'futu printer',
