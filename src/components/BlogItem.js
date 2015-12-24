@@ -15,7 +15,7 @@ export default class BlogItem extends Component {
 					<small>Posted on: {this.props.date}</small>
 				)}
 				<br/>
-				<a href={'http://twitter.com/home?status=@luke_hansell'} target="_blank">Any comments or questions?</a>
+				<a href={`http://twitter.com/home?status=@luke_hansell re:${this.props.title}`} target="_blank">Any comments or questions?</a>
 
 				{this.props.tags.length > 0 && (
 					<ul className="tags">
