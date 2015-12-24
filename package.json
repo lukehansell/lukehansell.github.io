@@ -7,7 +7,7 @@
     "test": "mocha",
     "build": "webpack",
     "start": "webpack-dev-server --inline --hot --content-base public",
-    "publish": "git subtree push --prefix public origin gh-pages"
+    "publish": "npm run build && surge public"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "parallelshell": "^2.0.0",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.0",
+    "surge": "^0.17.4",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
