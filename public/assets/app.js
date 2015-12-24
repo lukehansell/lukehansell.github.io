@@ -58,19 +58,19 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _BlogRoll = __webpack_require__(454);
+	var _BlogRoll = __webpack_require__(455);
 
 	var _BlogRoll2 = _interopRequireDefault(_BlogRoll);
 
-	var _Post = __webpack_require__(462);
+	var _Post = __webpack_require__(463);
 
 	var _Post2 = _interopRequireDefault(_Post);
 
-	var _About = __webpack_require__(463);
+	var _About = __webpack_require__(464);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	__webpack_require__(474);
+	__webpack_require__(475);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24344,7 +24344,11 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _marked = __webpack_require__(450);
+	var _reactGoogleAd = __webpack_require__(450);
+
+	var _reactGoogleAd2 = _interopRequireDefault(_reactGoogleAd);
+
+	var _marked = __webpack_require__(451);
 
 	var _marked2 = _interopRequireDefault(_marked);
 
@@ -24378,7 +24382,7 @@
 			key: 'componentWillMount',
 			value: function componentWillMount() {
 
-				var req = __webpack_require__(451);
+				var req = __webpack_require__(452);
 
 				var posts = req.keys().map(function (key) {
 					var content = req(key);
@@ -24492,7 +24496,8 @@
 											)
 										);
 									})
-								)
+								),
+								_react2.default.createElement(_reactGoogleAd2.default, { client: 'ca-pub-7146027200430145', slot: '6621837438', format: 'auto' })
 							)
 						)
 					)
@@ -40935,6 +40940,49 @@
 /* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	module.exports = React.createClass({
+		displayName: "exports",
+
+		propTypes: {
+			height: React.PropTypes.string,
+			width: React.PropTypes.string,
+			client: React.PropTypes.string.isRequired,
+			slot: React.PropTypes.string.isRequired,
+			format: React.PropTypes.string.isRequired
+		},
+
+		getDefaultProps: function getDefaultProps() {
+			return {
+				height: "100%",
+				width: "100%"
+			};
+		},
+
+		render: function render() {
+			return React.createElement("ins", { className: "adsbygoogle",
+				style: {
+					display: "block",
+					height: this.props.height,
+					width: this.props.width
+				},
+				"data-ad-client": this.props.client,
+				"data-ad-slot": this.props.slot,
+				"data-ad-format": this.props.format });
+		},
+
+		componentDidMount: function componentDidMount() {
+			(window.adsbygoogle = window.adsbygoogle || []).push({});
+		}
+	});
+
+/***/ },
+/* 451 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 
 	function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
@@ -42121,12 +42169,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 451 */
+/* 452 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./2015-12-23-surge.md": 452,
-		"./this_site.md": 453
+		"./2015-12-23-surge.md": 453,
+		"./this_site.md": 454
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -42139,23 +42187,23 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 451;
+	webpackContext.id = 452;
 
-
-/***/ },
-/* 452 */
-/***/ function(module, exports) {
-
-	module.exports = "---\ntitle: Publishing with Surge\ndate: 2015-12-23\ntags: surge,dns,gh-pages,github\nhashtag: publishingwithsurge\n---\n<img src='images/surge-logo.png' height='150' style='float:left' markdown=\"1\"/>\nSo after trying for some time to publish my blog with gh-pages I decided to fall back on my old faithful [Surge](http://surge.sh). I was trying to follow guidance on how to [publish a directory to your `gh-pages` branch](https://gist.github.com/cobyism/4730490), but after fighting with it and my DNS for some time I gave up. I have no time when I'm working on personal projects to struggle with tools, especially since I have a good set that I know works.\n\nHence I fell back onto Surge. I ran `surge public` via an npm script that also built the package before deploying. Surge automatically picked up the CNAME file with my custom domain in that I was trying to use on Github and my blog was published in seconds. \n\nSurge is my kinda tool, easy and does exactly what it says on the in."
 
 /***/ },
 /* 453 */
 /***/ function(module, exports) {
 
-	module.exports = "---\ntitle: Blogging With Webpack and React\ndate: 2015-12-23\ntags: react,blog,development,webpack,react-router\nhasktag: blogwithreact\n---\n<img src=\"images/webpack-logo.png\" alt=\"Webpack logo\" height=\"150\" style=\"float:left\" />\nA couple of nights ago I was browsing the [Wepack loader list](https://webpack.github.io/docs/list-of-loaders.html) and I noticed the [markdown-loader](https://github.com/peerigon/markdown-loader). I thought it might be interesting to try and build something using it and the first thing that came to mind was a blog. So I built this site.\n\nBeing a huge [React](https://facebook.github.io/react/) fan I thought I'd use that for rendering. Actually I've found (to no surprise really with React) the whole process to be very simple.\n\n### tl;dr;\n[View the source](https://github.com/lukehansell/lukehansell.github.io)\n\n### Installing and Setting up the Environment\n\nI have a pretty standard set of commands that I use to set up most React projects now. After running `npm init` I always go for:\n```\n> npm i --save webpack webpack-dev-server babel-loader babel-core babel-preset-es2015 babel-preset-react react react-dom\n> echo '{\"presets\":[\"es2015\",\"react\"]}' > ./.babelrc\n> mkdir src\n```\n\nThe `.babelrc` file here tells [Babel](https://babeljs.io/) to use the es2015 and React presets when parsing files.\n\nSince this is going to be a website I'll add a directory to source it from as well as a basic index page.\n\n```\n> mkdir public\n> echo '<html><head></head><body><div id=\"app\"/><script src=\"assets/app.js\"></script></body></html>' > public/index.html\n```\n\nThis will create an index page with a `div` and attempt to load the built asset. I always use a `div` to render into when using React. Some people like to render to the `body` but I find this messier and prefer the ability to write other things to the body that don't get overwritten.\n\nThe next task is to set up our `webpack.config.js`. In your favourite editor create a file in the root directory of your project called `webpack.config.js` and add the following:\n\n```\nmodule.exports = {\n    entry: './src/index.js',\n    output: {\n        path: __dirname + '/public/assets',\n        filename: 'app.js'\n    },\n    module: {\n        loaders: [{\n            test: /\\.js$/,\n            loader: \"babel-loader\"\n        }]\n    }\n}\n```\n\nThe `entry` bit tells Webpack where to begin loading from and the `output` section tells it where to write to. The `module` section currently provides an array of loaders. These arrays have a RegEx `test` in them. If the filename being loaded matches that RegEx then the specified `loader` is applied. Here we are using the Babel-loader.\n\nAnd we'll create a build task to make running Webpack easier.\n\nIn your `package.json` file, modify your scripts section like so:\n\n```\n...\n\"scripts\": {\n    \"build\": \"webpack\"\n}\n...\n```\n\nBut we need something to build. In the `src` directory create a file `index.js` and add the following:\n\n```\ndocument.write('hello world')\n```\n\nIf you run `npm run build`, in `public/assets`, you will have an `app.js` file which contains a load of Webpack boilerplate code and your `document.write` line.\n\nSo now we have a built asset we want to be able to see what it will look like in the browser.\n\nIn your `webpack.config.js` file, modify the output section as so:\n\n```\n...\noutput: {\n    path: __dirname + '/public/assets',\n    publicPath: '/assets/',\n    filename: 'app.js'\n}\n...\n```\n\nThe `publicPath` will tell the [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) where your site expects the scripts to be located.\n\nAnd now in your `package.json` add another script:\n```\n\"scripts\": {\n    ...\n    \"start\": \"webpack-dev-server --inline --hot --content-base public\"\n}\n```\n\nThis command starts up the webpack-dev-server in inline mode with hot reloading, so we don't have to refresh between code changes and sets the base of the server to the `public` directory, where our html and built files reside.\n\nRun `npm start` and in your browser navigate to `localhost:8080`. You should see the phrase 'hello world' displayed.\n\n### The Application\n\n*Please note that the following section is simplified from how I actually did this, though it does work. For a more modularised method take a look at the [source code](https://github.com/lukehansell/lukehansell.github.io)*\n\nNow that we have a running development environment things get easier. We need to load our posts and display them on the page. To do this we will create a React component.\n\nFor simplicities sake we'll create our components in the `src/index.js` file, but you could divide these out to other files if you wish.\n\nWe'll create a simple component to display posts:\n```\nimport React, {Component} from 'react'\n\nclass App extends Component {\n    constructor(props) {\n        super(props)\n        this.state = {\n            posts: []\n        }\n    }\n\n    render() {\n        return (\n            <ul>\n                {this.state.posts.map( (post, i) => {\n                    return (\n                        <li>\n                            <div dangerouslySetInnerHTML={{__html: post}} />\n                        </li>\n                    )\n                })}\n            </ul>\n        )\n    }   \n}\n```\n\nHere we create a React component class with an initial \"state\" object consisting of \"posts\" which is an empty array. The render method maps through this array and uses `dangerouslySetInnerHTML` to render the contents of the array in to a div. \n\n**Be advised**, `dangerouslySetInnerHTML` is named as such for a reason as it doesn't clean your code, so if you're using input from unknown sources you could open your site to XSS attacks. Since we're only loading our known files we should be okay here.\n\nThe next thing to do would be to render this component out. To do that we need to add the following:\n\n```\nimport {render} from 'react-dom'\n\nrender(<App />, document.getElementById('app'))\n```\n\nThis takes our App element and renders it into an element with the `app` ID (remember when we added that earlier?). Now if you reload your page it will be blank...\n\nThat's all well and good, but we want to actually display a blog, not a blank page, so I suppose we should load in some data?\n\n### Fetching the data\n\nOur posts will be stored in markdown files to make them easy to write. We'll create a place to store them first. In your terminal run the following command:\n\n```\n> mkdir posts\n```\n\nThen in this folder create a file with the `.md` extension and write some content into there.\n\nNext we'll need to be able to load this content. Webpack doesn't natively support markdown files so we'll add a loader to do this. Remember how earlier we specified a babel-loader? Now we'll do the same for markdown.\n\nFirst install the required loaders.\n\n```\n> npm i --save markdown-loader html-loader\n```\n\nSince the markdown-loader parses the content into HTML we also need to be able to load HTML, hence the html-loader.\n\nThen in your `webpack.config.js` add it to the `module.loaders` section.\n\n```\nmodule: {\n    loaders: [\n        ...\n        {\n            test: /\\.md$/,\n            loader: 'html-loader!markdown-loader'\n        }\n    ]\n}\n```\n\nNow restart your `npm start` script and you will support \".md\" files.\n\nNext comes the tricky bit, loading the data into the React component.\n\nInside your `App` component in `src/index.js` we need to add a `componentDidMount` method to load the posts.\n\n```\n...\ncomponentDidMount() {\n    const req = require.context('../../posts', true, /.*\\.md$/)\n\n    const posts = req.keys().map( key => {\n        return req(key)\n    })\n\n    this.setState({\n        posts\n    })\n}\n...\n```\n\nBecause our app runs on the client we don't have access to the filesystem with the posts on. We therefore need to bundle these into our application and send it to the client as one package. Using `require.context` we can get a list of all the files in the `posts` directory. Then, using the contextualised require, we simply loop over the files and require them in. The markdown and html loaders take care of parsing the content for us and we can simply set the new state of `posts`.\n\nIf you go back to your browser you should now see your post you created. By adding more files to the `posts` directory you can now create a blog and it will automatically load them.\n\n### Things Still To Do\n\nSo we have the posts displaying on the page, but it's not very pretty. We could add some styling to this.\n\nAlso, in this tutorial version there's no way of ordering the content or providing meta data. In the source for this blog I use the [raw-loader](https://github.com/webpack/raw-loader) to load the content, a RegEx to parse the head of the file, which includes meta data, and then I parse it with [Marked](https://www.npmjs.com/package/marked). That way I can add things like publish dates and tags. I'll cover this in a later post (or just[view the source](https://github.com/lukehansell/lukehansell.github.io)).\n\nWe're not publishing this anywhere. It's all well and good that we've got this up and running, but if no one can see it then what's the point! You could use [Surge](http://surge.sh) to publish the `public` folder or you could push to Github-pages. Surge is one of my favourite tools at the moment, I'll do a post on it soon.\n\n### Issues With This Approach\nThis approach isn't as good as static site generators as you have to load all of your blog at once! Therefore the more content you have overall, the longer it takes to load your site. We can get around this by using Webpack's chunking, it wasn't covered in this post. In fact I still have to do it at this point to the this blog itself!\n\nI'll write another post when I address this issue.\n\nBut there you have it: building a blog with Webpack, markdown and React!"
+	module.exports = "---\ntitle: Publishing with Surge\ndate: 2015-12-23\ntags: surge,dns,gh-pages,github\nhashtag: publishingwithsurge\n---\n<img src='images/surge-logo.png' height='150' style='float:left' markdown=\"1\"/>\nSo after trying for some time to publish my blog with gh-pages I decided to fall back on my old faithful [Surge](http://surge.sh). I was trying to follow guidance on how to [publish a directory to your `gh-pages` branch](https://gist.github.com/cobyism/4730490), but after fighting with it and my DNS for some time I gave up. I have no time when I'm working on personal projects to struggle with tools, especially since I have a good set that I know works.\n\nHence I fell back onto Surge. I ran `surge public` via an npm script that also built the package before deploying. Surge automatically picked up the CNAME file with my custom domain in that I was trying to use on Github and my blog was published in seconds. \n\nSurge is my kinda tool, easy and does exactly what it says on the in."
 
 /***/ },
 /* 454 */
+/***/ function(module, exports) {
+
+	module.exports = "---\ntitle: Blogging With Webpack and React\ndate: 2015-12-23\ntags: react,blog,development,webpack,react-router\nhasktag: blogwithreact\n---\n<img src=\"images/webpack-logo.png\" alt=\"Webpack logo\" height=\"150\" style=\"float:left\" />\nA couple of nights ago I was browsing the [Wepack loader list](https://webpack.github.io/docs/list-of-loaders.html) and I noticed the [markdown-loader](https://github.com/peerigon/markdown-loader). I thought it might be interesting to try and build something using it and the first thing that came to mind was a blog. So I built this site.\n\nBeing a huge [React](https://facebook.github.io/react/) fan I thought I'd use that for rendering. Actually I've found (to no surprise really with React) the whole process to be very simple.\n\n### tl;dr;\n[View the source](https://github.com/lukehansell/lukehansell.github.io)\n\n### Installing and Setting up the Environment\n\nI have a pretty standard set of commands that I use to set up most React projects now. After running `npm init` I always go for:\n```\n> npm i --save webpack webpack-dev-server babel-loader babel-core babel-preset-es2015 babel-preset-react react react-dom\n> echo '{\"presets\":[\"es2015\",\"react\"]}' > ./.babelrc\n> mkdir src\n```\n\nThe `.babelrc` file here tells [Babel](https://babeljs.io/) to use the es2015 and React presets when parsing files.\n\nSince this is going to be a website I'll add a directory to source it from as well as a basic index page.\n\n```\n> mkdir public\n> echo '<html><head></head><body><div id=\"app\"/><script src=\"assets/app.js\"></script></body></html>' > public/index.html\n```\n\nThis will create an index page with a `div` and attempt to load the built asset. I always use a `div` to render into when using React. Some people like to render to the `body` but I find this messier and prefer the ability to write other things to the body that don't get overwritten.\n\nThe next task is to set up our `webpack.config.js`. In your favourite editor create a file in the root directory of your project called `webpack.config.js` and add the following:\n\n```\nmodule.exports = {\n    entry: './src/index.js',\n    output: {\n        path: __dirname + '/public/assets',\n        filename: 'app.js'\n    },\n    module: {\n        loaders: [{\n            test: /\\.js$/,\n            loader: \"babel-loader\"\n        }]\n    }\n}\n```\n\nThe `entry` bit tells Webpack where to begin loading from and the `output` section tells it where to write to. The `module` section currently provides an array of loaders. These arrays have a RegEx `test` in them. If the filename being loaded matches that RegEx then the specified `loader` is applied. Here we are using the Babel-loader.\n\nAnd we'll create a build task to make running Webpack easier.\n\nIn your `package.json` file, modify your scripts section like so:\n\n```\n...\n\"scripts\": {\n    \"build\": \"webpack\"\n}\n...\n```\n\nBut we need something to build. In the `src` directory create a file `index.js` and add the following:\n\n```\ndocument.write('hello world')\n```\n\nIf you run `npm run build`, in `public/assets`, you will have an `app.js` file which contains a load of Webpack boilerplate code and your `document.write` line.\n\nSo now we have a built asset we want to be able to see what it will look like in the browser.\n\nIn your `webpack.config.js` file, modify the output section as so:\n\n```\n...\noutput: {\n    path: __dirname + '/public/assets',\n    publicPath: '/assets/',\n    filename: 'app.js'\n}\n...\n```\n\nThe `publicPath` will tell the [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) where your site expects the scripts to be located.\n\nAnd now in your `package.json` add another script:\n```\n\"scripts\": {\n    ...\n    \"start\": \"webpack-dev-server --inline --hot --content-base public\"\n}\n```\n\nThis command starts up the webpack-dev-server in inline mode with hot reloading, so we don't have to refresh between code changes and sets the base of the server to the `public` directory, where our html and built files reside.\n\nRun `npm start` and in your browser navigate to `localhost:8080`. You should see the phrase 'hello world' displayed.\n\n### The Application\n\n*Please note that the following section is simplified from how I actually did this, though it does work. For a more modularised method take a look at the [source code](https://github.com/lukehansell/lukehansell.github.io)*\n\nNow that we have a running development environment things get easier. We need to load our posts and display them on the page. To do this we will create a React component.\n\nFor simplicities sake we'll create our components in the `src/index.js` file, but you could divide these out to other files if you wish.\n\nWe'll create a simple component to display posts:\n```\nimport React, {Component} from 'react'\n\nclass App extends Component {\n    constructor(props) {\n        super(props)\n        this.state = {\n            posts: []\n        }\n    }\n\n    render() {\n        return (\n            <ul>\n                {this.state.posts.map( (post, i) => {\n                    return (\n                        <li>\n                            <div dangerouslySetInnerHTML={{__html: post}} />\n                        </li>\n                    )\n                })}\n            </ul>\n        )\n    }   \n}\n```\n\nHere we create a React component class with an initial \"state\" object consisting of \"posts\" which is an empty array. The render method maps through this array and uses `dangerouslySetInnerHTML` to render the contents of the array in to a div. \n\n**Be advised**, `dangerouslySetInnerHTML` is named as such for a reason as it doesn't clean your code, so if you're using input from unknown sources you could open your site to XSS attacks. Since we're only loading our known files we should be okay here.\n\nThe next thing to do would be to render this component out. To do that we need to add the following:\n\n```\nimport {render} from 'react-dom'\n\nrender(<App />, document.getElementById('app'))\n```\n\nThis takes our App element and renders it into an element with the `app` ID (remember when we added that earlier?). Now if you reload your page it will be blank...\n\nThat's all well and good, but we want to actually display a blog, not a blank page, so I suppose we should load in some data?\n\n### Fetching the data\n\nOur posts will be stored in markdown files to make them easy to write. We'll create a place to store them first. In your terminal run the following command:\n\n```\n> mkdir posts\n```\n\nThen in this folder create a file with the `.md` extension and write some content into there.\n\nNext we'll need to be able to load this content. Webpack doesn't natively support markdown files so we'll add a loader to do this. Remember how earlier we specified a babel-loader? Now we'll do the same for markdown.\n\nFirst install the required loaders.\n\n```\n> npm i --save markdown-loader html-loader\n```\n\nSince the markdown-loader parses the content into HTML we also need to be able to load HTML, hence the html-loader.\n\nThen in your `webpack.config.js` add it to the `module.loaders` section.\n\n```\nmodule: {\n    loaders: [\n        ...\n        {\n            test: /\\.md$/,\n            loader: 'html-loader!markdown-loader'\n        }\n    ]\n}\n```\n\nNow restart your `npm start` script and you will support \".md\" files.\n\nNext comes the tricky bit, loading the data into the React component.\n\nInside your `App` component in `src/index.js` we need to add a `componentDidMount` method to load the posts.\n\n```\n...\ncomponentDidMount() {\n    const req = require.context('../../posts', true, /.*\\.md$/)\n\n    const posts = req.keys().map( key => {\n        return req(key)\n    })\n\n    this.setState({\n        posts\n    })\n}\n...\n```\n\nBecause our app runs on the client we don't have access to the filesystem with the posts on. We therefore need to bundle these into our application and send it to the client as one package. Using `require.context` we can get a list of all the files in the `posts` directory. Then, using the contextualised require, we simply loop over the files and require them in. The markdown and html loaders take care of parsing the content for us and we can simply set the new state of `posts`.\n\nIf you go back to your browser you should now see your post you created. By adding more files to the `posts` directory you can now create a blog and it will automatically load them.\n\n### Things Still To Do\n\nSo we have the posts displaying on the page, but it's not very pretty. We could add some styling to this.\n\nAlso, in this tutorial version there's no way of ordering the content or providing meta data. In the source for this blog I use the [raw-loader](https://github.com/webpack/raw-loader) to load the content, a RegEx to parse the head of the file, which includes meta data, and then I parse it with [Marked](https://www.npmjs.com/package/marked). That way I can add things like publish dates and tags. I'll cover this in a later post (or just[view the source](https://github.com/lukehansell/lukehansell.github.io)).\n\nWe're not publishing this anywhere. It's all well and good that we've got this up and running, but if no one can see it then what's the point! You could use [Surge](http://surge.sh) to publish the `public` folder or you could push to Github-pages. Surge is one of my favourite tools at the moment, I'll do a post on it soon.\n\n### Issues With This Approach\nThis approach isn't as good as static site generators as you have to load all of your blog at once! Therefore the more content you have overall, the longer it takes to load your site. We can get around this by using Webpack's chunking, it wasn't covered in this post. In fact I still have to do it at this point to the this blog itself!\n\nI'll write another post when I address this issue.\n\nBut there you have it: building a blog with Webpack, markdown and React!"
+
+/***/ },
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42170,7 +42218,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _BlogItem = __webpack_require__(455);
+	var _BlogItem = __webpack_require__(456);
 
 	var _BlogItem2 = _interopRequireDefault(_BlogItem);
 
@@ -42182,7 +42230,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(460);
+	__webpack_require__(461);
 
 	var BlogRoll = (function (_Component) {
 		_inherits(BlogRoll, _Component);
@@ -42232,7 +42280,7 @@
 	};
 
 /***/ },
-/* 455 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42259,7 +42307,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(456);
+	__webpack_require__(457);
 
 	var BlogItem = (function (_Component) {
 		_inherits(BlogItem, _Component);
@@ -42319,16 +42367,16 @@
 	exports.default = BlogItem;
 
 /***/ },
-/* 456 */
+/* 457 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(457);
+	var content = __webpack_require__(458);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(459)(content, {});
+	var update = __webpack_require__(460)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -42345,10 +42393,10 @@
 	}
 
 /***/ },
-/* 457 */
+/* 458 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(458)();
+	exports = module.exports = __webpack_require__(459)();
 	// imports
 
 
@@ -42359,7 +42407,7 @@
 
 
 /***/ },
-/* 458 */
+/* 459 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -42414,7 +42462,7 @@
 	};
 
 /***/ },
-/* 459 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -42668,16 +42716,16 @@
 
 
 /***/ },
-/* 460 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(461);
+	var content = __webpack_require__(462);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(459)(content, {});
+	var update = __webpack_require__(460)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -42694,10 +42742,10 @@
 	}
 
 /***/ },
-/* 461 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(458)();
+	exports = module.exports = __webpack_require__(459)();
 	// imports
 
 
@@ -42708,7 +42756,7 @@
 
 
 /***/ },
-/* 462 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42725,7 +42773,7 @@
 
 	var _reactBootstrap = __webpack_require__(207);
 
-	var _BlogItem = __webpack_require__(455);
+	var _BlogItem = __webpack_require__(456);
 
 	var _BlogItem2 = _interopRequireDefault(_BlogItem);
 
@@ -42753,10 +42801,6 @@
 				var date = _props$routeParams.date;
 				var title = _props$routeParams.title;
 
-				ga('send', 'pageview', 'post', {
-					title: title
-				});
-
 				var post = this.props.posts.find(function (post) {
 					return post.date === date && post.title === title;
 				});
@@ -42777,7 +42821,7 @@
 	exports.default = Post;
 
 /***/ },
-/* 463 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42792,16 +42836,15 @@
 
 	var _reactBootstrap = __webpack_require__(207);
 
-	var _reactGravatar = __webpack_require__(464);
+	var _reactGravatar = __webpack_require__(465);
 
 	var _reactGravatar2 = _interopRequireDefault(_reactGravatar);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var aboutContent = __webpack_require__(473);
+	var aboutContent = __webpack_require__(474);
 
 	exports.default = function () {
-		ga('send', 'pageview', 'about');
 
 		var publishedWork = [{
 			title: 'futu printer',
@@ -42867,7 +42910,7 @@
 	};
 
 /***/ },
-/* 464 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42877,11 +42920,11 @@
 
 	React = __webpack_require__(1);
 
-	md5 = __webpack_require__(465);
+	md5 = __webpack_require__(466);
 
-	querystring = __webpack_require__(469);
+	querystring = __webpack_require__(470);
 
-	isRetina = __webpack_require__(472);
+	isRetina = __webpack_require__(473);
 
 	module.exports = React.createClass({
 	  displayName: 'Gravatar',
@@ -42952,16 +42995,16 @@
 	});
 
 /***/ },
-/* 465 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	(function () {
-	  var crypt = __webpack_require__(466),
-	      utf8 = __webpack_require__(467).utf8,
-	      isBuffer = __webpack_require__(468),
-	      bin = __webpack_require__(467).bin,
+	  var crypt = __webpack_require__(467),
+	      utf8 = __webpack_require__(468).utf8,
+	      isBuffer = __webpack_require__(469),
+	      bin = __webpack_require__(468).bin,
 
 	  // The core
 	  md5 = function md5(message, options) {
@@ -43108,7 +43151,7 @@
 	})();
 
 /***/ },
-/* 466 */
+/* 467 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -43204,7 +43247,7 @@
 	})();
 
 /***/ },
-/* 467 */
+/* 468 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -43244,7 +43287,7 @@
 	module.exports = charenc;
 
 /***/ },
-/* 468 */
+/* 469 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -43263,16 +43306,16 @@
 	};
 
 /***/ },
-/* 469 */
+/* 470 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	exports.decode = exports.parse = __webpack_require__(470);
-	exports.encode = exports.stringify = __webpack_require__(471);
+	exports.decode = exports.parse = __webpack_require__(471);
+	exports.encode = exports.stringify = __webpack_require__(472);
 
 /***/ },
-/* 470 */
+/* 471 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -43361,7 +43404,7 @@
 	};
 
 /***/ },
-/* 471 */
+/* 472 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -43430,7 +43473,7 @@
 	};
 
 /***/ },
-/* 472 */
+/* 473 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -43450,22 +43493,22 @@
 	};
 
 /***/ },
-/* 473 */
+/* 474 */
 /***/ function(module, exports) {
 
 	module.exports = "<p>My name is Luke and I&#39;m a developer based in Kent, UK. I work as a Software Engineer for <a href=\"http://www.holidayextras.co.uk\">Holiday Extras</a> in Newingreen. I&#39;m originally from North Yorkshire and I enjoy the great outdoors.</p>\n<p>I set up this website as a) a bit of an experiment with loading different content types with <a href=\"https://webpack.github.io/\">Webpack</a> and displaying them with <a href=\"https://facebook.github.io/react/\">React</a> and b) to log all my thoughts and travels. I intend this to be a bit of a life log regarding all things, but it will mostly come down to programming or walking for the most part.</p>\n<p><a href=\"https://twitter.com/luke_hansell\">@luke_hansell</a> | \n<a href=\"https://uk.linkedin.com/in/lukehansell\">LinkedIn</a></p>\n";
 
 /***/ },
-/* 474 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(475);
+	var content = __webpack_require__(476);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(459)(content, {});
+	var update = __webpack_require__(460)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -43482,10 +43525,10 @@
 	}
 
 /***/ },
-/* 475 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(458)();
+	exports = module.exports = __webpack_require__(459)();
 	// imports
 
 
