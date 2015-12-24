@@ -8,7 +8,7 @@ A couple of nights ago I was browsing the [Wepack loader list](https://webpack.g
 Being a huge [React](https://facebook.github.io/react/) fan I thought I'd use that for rendering. Actually I've found (to no surprise really with React) the whole process to be very simple.
 
 ### tl;dr;
-[View the source]()
+[View the source](https://github.com/lukehansell/lukehansell.github.io)
 
 ### Installing and Setting up the Environment
 
@@ -100,7 +100,7 @@ Run `npm start` and in your browser navigate to `localhost:8080`. You should see
 
 ### The Application
 
-*Please note that the following section is simplified from how I actually did this, though it does work. For a more modularised method take a look at the [source code]()*
+*Please note that the following section is simplified from how I actually did this, though it does work. For a more modularised method take a look at the [source code](https://github.com/lukehansell/lukehansell.github.io)*
 
 Now that we have a running development environment things get easier. We need to load our posts and display them on the page. To do this we will create a React component.
 
@@ -214,7 +214,7 @@ If you go back to your browser you should now see your post you created. By addi
 
 So we have the posts displaying on the page, but it's not very pretty. We could add some styling to this.
 
-Also, in this tutorial version there's no way of ordering the content or providing meta data. In the source for this blog I use the [raw-loader](https://github.com/webpack/raw-loader) to load the content, a RegEx to parse the head of the file, which includes meta data, and then I parse it with [Marked](https://www.npmjs.com/package/marked). That way I can add things like publish dates and tags. I'll cover this in a later post (or just[view the source]()).
+Also, in this tutorial version there's no way of ordering the content or providing meta data. In the source for this blog I use the [raw-loader](https://github.com/webpack/raw-loader) to load the content, a RegEx to parse the head of the file, which includes meta data, and then I parse it with [Marked](https://www.npmjs.com/package/marked). That way I can add things like publish dates and tags. I'll cover this in a later post (or just[view the source](https://github.com/lukehansell/lukehansell.github.io)).
 
 We're not publishing this anywhere. It's all well and good that we've got this up and running, but if no one can see it then what's the point! You could use [Surge](http://surge.sh) to publish the `public` folder or you could push to Github-pages. Surge is one of my favourite tools at the moment, I'll do a post on it soon.
 

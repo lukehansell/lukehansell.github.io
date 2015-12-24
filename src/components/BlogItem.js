@@ -14,9 +14,11 @@ export default class BlogItem extends Component {
 				{this.props.date && (
 					<small>Posted on: {this.props.date}</small>
 				)}
+				<br/>
+				<a href={'http://twitter.com/home?status=@luke_hansell'} target="_blank">Any comments or questions?</a>
 
 				{this.props.tags.length > 0 && (
-					<ul>
+					<ul className="tags">
 						{this.props.tags.map( (tag, i) => {
 							return (
 								<li key={i}>
