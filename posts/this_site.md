@@ -1,7 +1,12 @@
 ---
 title: Blogging With Webpack and React
 date: 2015-12-23
-tags: react,blog,development,webpack,react-router
+tags: 
+    - react
+    - blog
+    - development
+    - webpack
+    - react-router
 hasktag: blogwithreact
 ---
 <img src="images/webpack-logo.png" alt="Webpack logo" height="150" style="float:left" />

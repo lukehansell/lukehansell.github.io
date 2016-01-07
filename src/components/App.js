@@ -5,6 +5,7 @@ import {Link} from 'react-router'
 import GoogleAd from 'react-google-ad'
 
 import marked from 'marked'
+import frontMatter from 'front-matter'
 
 const sanitize = data => data.replace(/^\W+/, '').replace(/\W+$/, '')
 
@@ -22,24 +23,13 @@ export default class App extends Component {
 		const req = require.context('../../posts', true, /.*\.md$/)
 
 		const posts = req.keys().map( key => {
-			const content = req(key)
-			const metaRegex = /^---\n(.+\n)+?---/
-
-			let meta = {}
-			content.match(metaRegex)[0]
-				.match(/(.+:\W?.+)+/g)
-				.map( (data) => {
-					const [key, value] = data.split(':')
-					meta[sanitize(key)] = sanitize(value)
-				})
-
-			meta.tags = meta.tags.split(',') || []
+			const parsed = frontMatter(req(key))
 
 			return Object.assign({
 				title: key.match(/\/(.*)\.md/)[1].replace(/\_/g, ' '),
 				tags: []
-			}, meta, {
-				content: marked(content.replace(metaRegex, ''))
+			}, parsed.attributes, {
+				content: marked(parsed.body)
 			})
 		}).sort( (a, b) => a.date < b.date )
 

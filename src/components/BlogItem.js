@@ -12,7 +12,7 @@ export default class BlogItem extends Component {
 				<h2>{this.props.title}</h2>
 				<div dangerouslySetInnerHTML={{__html: this.props.content}} />
 				{this.props.date && (
-					<small>Posted on: {this.props.date}</small>
+					<small>Posted on: {this.props.date.toDateString()}</small>
 				)}
 				<br/>
 				<a href={`http://twitter.com/home?status=@luke_hansell re:${this.props.title}`} target="_blank">Any comments or questions?</a>
