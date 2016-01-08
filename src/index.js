@@ -3,19 +3,9 @@ import {render} from 'react-dom'
 
 import {Router, Route} from 'react-router'
 
-import App from './components/App'
-import BlogRoll from './components/BlogRoll'
-import Post from './components/Post'
-import About from './components/About'
-
+import routes from './routes'
 import './index.css'
 
 render((
-	<Router>
-		<Route component={App} >
-			<Route path="/" component={BlogRoll} />
-			<Route path="posts/:date/:title" component={Post} />
-			<Route path="about" component={About} />
-		</Route>
-	</Router>
+	<Router routes={routes} />
 ), document.getElementById('app'))
