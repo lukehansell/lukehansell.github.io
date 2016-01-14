@@ -9,7 +9,7 @@ import About from './components/About'
 module.exports = (
 	<Route component={App} >
 		<Route path="/" component={BlogRoll} />
-		<Route path="posts/:date/:title" component={Post} name="post" />
+		<Route path="posts/:slug" component={Post} name="post" />
 		<Route path="about" component={About} />
 	</Route>
 )

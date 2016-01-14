@@ -7,7 +7,8 @@ tags:
     - development
     - webpack
     - react-router
-hasktag: blogwithreact
+hashtag: blogwithreact
+slug: blogging-with-webpack-and-react
 ---
 <img src="images/webpack-logo.png" alt="Webpack logo" height="150" style="float:left" />
 A couple of nights ago I was browsing the [Wepack loader list](https://webpack.github.io/docs/list-of-loaders.html) and I noticed the [markdown-loader](https://github.com/peerigon/markdown-loader). I thought it might be interesting to try and build something using it and the first thing that came to mind was a blog. So I built this site.

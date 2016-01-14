@@ -71,7 +71,7 @@ export default class App extends Component {
 								{this.state.posts.slice(0,10).map( (post, i) => {
 									return (
 										<li key={i}>
-											<Link to={`/posts/${post.date}/${post.title}`}>{post.title}</Link>
+											<Link to={`/posts/${post.slug}`}>{post.title}</Link>
 										</li>
 									)
 								})}

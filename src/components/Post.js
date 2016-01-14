@@ -7,11 +7,9 @@ import BlogItem from './BlogItem'
 export default class Post extends Component {
 	render() {
 		
-		const {date, title} = this.props.routeParams
+		const {slug} = this.props.routeParams
 
-		const post = this.props.posts.find( (post) => {
-			return post.date === date && post.title === title
-		})
+		const post = this.props.posts.find( post => post.slug === slug )
 
 		if(!post) return (<p>Post not found</p>)
 

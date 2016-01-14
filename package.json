@@ -7,7 +7,7 @@
     "test": "mocha",
     "build": "webpack",
     "start": "webpack-dev-server --inline --hot --content-base public",
-    "publish": "npm run build && surge public"
+    "publish": "NODE_ENV=production npm run build && surge public"
   },
   "repository": {
     "type": "git",
