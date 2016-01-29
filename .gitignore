@@ -1,3 +1,5 @@
 node_modules
 *.log
 public/assets/app.js
+public/*.html
+public/bundle.js
