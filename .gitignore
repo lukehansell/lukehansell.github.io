@@ -3,3 +3,6 @@ node_modules
 public/assets/app.js
 public/*.html
 public/bundle.js
+public/about
+public/app.js
+public/posts
