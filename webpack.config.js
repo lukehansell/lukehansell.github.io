@@ -5,7 +5,7 @@ var path = require('path')
 var PROD = process.env.NODE_ENV === 'production'
 
 module.exports = {
-	entry: "./entry.js",
+	entry: "./src/app.js",
 	output: {
 		path: __dirname + '/public',
 		filename: 'app.js',
