@@ -2,12 +2,11 @@ import React, {Component} from 'react'
 
 import BlogItem from './BlogItem'
 
-require('../style/blogroll.css')
-
 export default class BlogRoll extends Component {
 	filterPosts(post) {
 
-		if(this.props.location.query.tag && 
+		if(this.props.location.query &&
+			this.props.location.query.tag && 
 			post.tags.indexOf(this.props.location.query.tag) === -1) return false
 
 		return true
