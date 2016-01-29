@@ -2,15 +2,13 @@ import React, {Component} from 'react'
 import {Panel} from 'react-bootstrap'
 import {Link} from 'react-router'
 
-require('../style/blogItem.css')
-
 export default class BlogItem extends Component {
 
 	render() {
 		return (
 			<Panel className="blogItem" >
-				<article itemscope itemtype="http://schema.org/NewsArticle">
-					<h2 itemprop="headline">{this.props.title}</h2>
+				<article itemScope itemType="http://schema.org/NewsArticle">
+					<h2 itemProp="headline">{this.props.title}</h2>
 					<div dangerouslySetInnerHTML={{__html: this.props.content}} />
 					{this.props.date && (
 						<small>Posted on: {this.props.date.toDateString()}</small>
