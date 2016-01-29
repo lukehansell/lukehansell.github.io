@@ -52,8 +52,8 @@ export default class App extends Component {
 					<Col xs={12}>
 						<Navbar>
 							<Nav>
-								<NavItem href="#/">Home</NavItem>
-								<NavItem href="#/about">About</NavItem>
+								<Navbar.Text><Link to="/">Home</Link></Navbar.Text>
+								<Navbar.Text><Link to="/about">About</Link></Navbar.Text>
 							</Nav>
 						</Navbar>
 					</Col>
