@@ -4,8 +4,8 @@ const { renderToStaticMarkup } = require('react-dom/server')
 const { Router, match, RoutingContext } = require('react-router')
 const { createHistory, createMemoryHistory } = require('history');
 
+const Root = require('./components/root')
 const routes = require('./routes')
-const Root = require('./root')
 
 if (typeof document !== 'undefined') {
   const history = createHistory();
